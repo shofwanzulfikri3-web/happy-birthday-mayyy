@@ -7,12 +7,12 @@
 
 <title>Happy Birthday Mayyy ❤️</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <link rel="stylesheet" href="css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
@@ -23,54 +23,64 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     <source src="music/romantic.mp3" type="audio/mpeg">
 </audio>
 
+<button id="musicToggle" class="music-toggle" aria-label="Putar musik">
+    <i class="fa-solid fa-music"></i>
+</button>
+
 <!-- LOADER -->
 <div id="loader">
 
     <div class="loader-content">
 
-        <h1>👑 Princess Mayyy 👑</h1>
+        <div class="loader-sticker">👑</div>
 
-        <p>
-            Sebuah hadiah kecil dari Ikyyy ❤️
-        </p>
+        <h1>Princess Mayyy</h1>
+
+        <p>Sebuah hadiah kecil dari Ikyyy, dibungkus pakai banyak banget rasa kangen ❤️</p>
+
+        <div class="loader-bar">
+            <div class="loader-fill" id="loaderFill"></div>
+        </div>
 
         <button id="startBtn">
-            Buka Kejutan 🎁
+            Buka Kejutannyaa 🎁
         </button>
 
     </div>
 
 </div>
 
-<!-- FLOATING HEARTS -->
+<!-- FLOATING DECOR -->
 <div id="hearts-container"></div>
-
-<!-- FLOATING STARS -->
 <div id="stars-container"></div>
+<div id="balloons-container"></div>
 
 <!-- HERO SECTION -->
 <section class="hero">
 
+    <span class="sticker sticker-1">🎀</span>
+    <span class="sticker sticker-2">✨</span>
+    <span class="sticker sticker-3">🍰</span>
+
     <div class="hero-content">
 
-        <h3>🎂 HAPPY BIRTHDAY 🎂</h3>
+        <p class="eyebrow">🎂 selamat ulang tahun 🎂</p>
 
         <h1>
             Untuk
             <span>Mayyy ❤️</span>
         </h1>
 
-        <p>
-            Hari ini dunia merayakan seseorang
-            yang sangat spesial.
-            Seseorang yang membuat hariku lebih indah,
-            senyumku lebih tulus,
-            dan hidupku lebih berwarna.
+        <p class="hero-text">
+            Hari ini dunia merayakan seseorang yang paling berisik di hatiku
+            tapi paling tenang bikin harinya.
+            Seseorang yang bikin senyumku jadi reflex, bukan pilihan.
         </p>
 
-        <a href="#surat" class="btn-love">
-            Baca Pesanku ❤️
-        </a>
+        <div class="hero-buttons">
+            <a href="#surat" class="btn-love">Baca Pesanku ❤️</a>
+            <a href="#quiz" class="btn-ghost">Main Kuis Receh dulu yuk 😜</a>
+        </div>
 
     </div>
 
@@ -79,12 +89,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <!-- MAIN PHOTO -->
 <section class="featured-photo">
 
-    <h2>📸 My Favorite Girl</h2>
+    <p class="eyebrow">📸 si paling cantik</p>
+    <h2>My Favorite Girl</h2>
 
     <div class="featured-image">
-
-        <img src="images/foto1.jpg" alt="Mayyy">
-
+        <div class="polaroid polaroid-big">
+            <img src="images/foto1.jpg" alt="Mayyy">
+            <span class="polaroid-caption">tanpa filter pun tetap juara 🏆</span>
+        </div>
     </div>
 
 </section>
@@ -92,73 +104,73 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <!-- GALLERY -->
 <section class="gallery-section">
 
-    <h2>💖 Our Beautiful Memories 💖</h2>
+    <p class="eyebrow">💖 album kenangan</p>
+    <h2>Our Beautiful Memories</h2>
 
-    <p>
-        Setiap foto menyimpan cerita,
-        dan setiap cerita selalu memiliki kamu.
+    <p class="section-sub">
+        Setiap foto nyimpen cerita, dan setiap cerita selalu ada kamu di dalamnya.
     </p>
 
     <div class="gallery">
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto1.jpg" alt="">
-            <span>My Girlll</span>
+            <span class="polaroid-caption">My Girlll</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto2.jpg" alt="">
-            <span>My Loveee</span>
+            <span class="polaroid-caption">My Loveee</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto3.jpg" alt="">
-            <span>My Worldd</span>
+            <span class="polaroid-caption">My Worldd</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto4.jpg" alt="">
-            <span>My Prettyy Girll</span>
+            <span class="polaroid-caption">My Prettyy Girll</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto5.jpg" alt="">
-            <span>My Perfect Girll</span>
+            <span class="polaroid-caption">My Perfect Girll</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto6.jpg" alt="">
-            <span>My Happiness</span>
+            <span class="polaroid-caption">My Happiness</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto7.jpg" alt="">
-            <span>My Wifee</span>
+            <span class="polaroid-caption">My Wifee</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto8.jpg" alt="">
-            <span>My Bububb</span>
+            <span class="polaroid-caption">My Bububb</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto9.jpg" alt="">
-            <span>My Adeeeee</span>
+            <span class="polaroid-caption">My Adeeeee</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto10.jpg" alt="">
-            <span>Mayyy Punyaa Ikyyyy</span>
+            <span class="polaroid-caption">Mayyy Punyaa Ikyyyy</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto11.jpg" alt="">
-            <span>My Spiritt</span>
+            <span class="polaroid-caption">My Spiritt</span>
         </div>
 
-        <div class="card">
+        <div class="card polaroid">
             <img src="images/foto12.jpg" alt="">
-            <span>Segalanya Tentang Kamu</span>
+            <span class="polaroid-caption">Segalanya Tentang Kamu</span>
         </div>
 
     </div>
@@ -168,20 +180,81 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <!-- REASONS -->
 <section class="reasons">
 
-    <h2>🌷 10 Alasan Aku Menyayangimu 🌷</h2>
+    <p class="eyebrow">🌷 alasan receh tapi serius</p>
+    <h2>10 Alasan Aku Menyayangimu</h2>
+    <p class="section-sub">Klik kartunya buat balik, kayak hati Ikyyy yang gampang banget kebalik kalau soal kamu.</p>
 
     <div class="reason-grid">
 
-        <div class="reason-card">❤️ Cara kamu memperlakukan aku.</div>
-        <div class="reason-card">❤️ Kamu selalu ada saat aku membutuhkan.</div>
-        <div class="reason-card">❤️ Kamu membuat hidupku lebih berwarna.</div>
-        <div class="reason-card">❤️ Kamu adalah pendengar terbaik.</div>
-        <div class="reason-card">❤️ Kamu membuatku ingin menjadi lebih baik.</div>
-        <div class="reason-card">❤️ Tawamu selalu menenangkan.</div>
-        <div class="reason-card">❤️ Kamu cantik luar dan dalam.</div>
-        <div class="reason-card">❤️ Kamu membuatku merasa dicintai.</div>
-        <div class="reason-card">❤️ Kamu adalah rumah yang nyaman.</div>
-        <div class="reason-card">❤️ Karena kamu adalah kamu.</div>
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>01</span>Cara kamu memperlakukan aku.</div>
+                <div class="reason-back">🥰 bikin baper tiap hari, no skip.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>02</span>Kamu selalu ada saat aku butuh.</div>
+                <div class="reason-back">📍 lokasi: di hati, 24/7 online.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>03</span>Kamu bikin hidupku lebih berwarna.</div>
+                <div class="reason-back">🎨 warna favoritnya: senyummu.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>04</span>Kamu pendengar terbaik.</div>
+                <div class="reason-back">🎧 sabar dengerin curhat receh Ikyyy.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>05</span>Kamu bikin aku pengen jadi lebih baik.</div>
+                <div class="reason-back">📈 versi terbaik Ikyyy, brought to you by kamu.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>06</span>Tawamu selalu menenangkan.</div>
+                <div class="reason-back">😂 obat stress nomor satu, anti gagal.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>07</span>Kamu cantik luar dan dalam.</div>
+                <div class="reason-back">✨ paket lengkap, tanpa syarat & ketentuan.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>08</span>Kamu bikin aku merasa dicintai.</div>
+                <div class="reason-back">💌 rasanya kayak dipeluk dari jauh.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>09</span>Kamu adalah rumah yang nyaman.</div>
+                <div class="reason-back">🏠 nggak perlu alamat, cukup ada kamu.</div>
+            </div>
+        </div>
+
+        <div class="reason-card" tabindex="0">
+            <div class="reason-inner">
+                <div class="reason-front"><span>10</span>Karena kamu adalah kamu.</div>
+                <div class="reason-back">❤️ itu udah lebih dari cukup.</div>
+            </div>
+        </div>
 
     </div>
 
@@ -192,46 +265,42 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <div class="letter-box">
 
-        <h2>💌 Surat Untuk Mayyy 💌</h2>
+        <p class="eyebrow eyebrow-letter">💌 buat kamu</p>
+        <h2>Surat Untuk Mayyy</h2>
 
-        <p>
-            Selamat ulang tahun sayangku.
-            Hari ini bertepatan tanggal 24 November adalah hari yang sangat spesial,
+        <p class="reveal-text">
+            Selamat ulang tahun sayangku. Hari ini bertepatan tanggal 24 November adalah hari yang sangat spesial,
             karena hari ini dunia menghadirkan seseorang yang luar biasa ke dunia ini.
         </p>
 
-        <p>
+        <p class="reveal-text">
             Terima kasih karena selalu hadir dalam setiap cerita yang aku jalani.
             Terima kasih karena selalu menjadi alasan mengapa aku tersenyum bahkan di hari-hari yang sulit.
         </p>
 
-        <p>
+        <p class="reveal-text">
             Kamu adalah perempuan yang kuat, baik hati, cantik, dan luar biasa.
             Banyak hal yang mungkin belum sempat aku ungkapkan,
-            tetapi satu hal yang selalu ingin aku katakan:
-            aku bersyukur memilikimu.
+            tetapi satu hal yang selalu ingin aku katakan: aku bersyukur memilikimu.
         </p>
 
-        <p>
+        <p class="reveal-text">
             Aku berharap semua impianmu tercapai.
-            Semoga setiap langkahmu dipenuhi kebahagiaan,
-            kesehatan, keberuntungan, dan cinta yang tulus.
+            Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, keberuntungan, dan cinta yang tulus.
         </p>
 
-        <p>
-            Jika suatu saat dunia terasa berat,
-            ingatlah bahwa akan selalu ada seseorang yang mendukungmu sepenuh hati.
+        <p class="reveal-text">
+            Jika suatu saat dunia terasa berat, ingatlah bahwa akan selalu ada seseorang yang mendukungmu sepenuh hati.
             Dan orang itu adalah aku.
         </p>
 
-        <p>
+        <p class="reveal-text">
             Terima kasih sudah menjadi bagian terindah dari hidupku.
             Terima kasih sudah menjadi alasan aku percaya bahwa cinta yang tulus itu ada.
         </p>
 
-        <p>
-            Selamat ulang tahun,
-            Princess Mayyy 👑❤️
+        <p class="reveal-text closing-line">
+            Selamat ulang tahun, Princess Mayyy 👑❤️
         </p>
 
         <p class="signature">
@@ -243,10 +312,50 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </section>
 
+<!-- QUIZ RECEH -->
+<section id="quiz" class="quiz-section">
+
+    <p class="eyebrow">🎲 kuis receh</p>
+    <h2>Seberapa Ikyyy Kenal Kamu?</h2>
+    <p class="section-sub">Jawaban apapun yang kamu klik, dijamin bener... soalnya Ikyyy yang bikin soal 😏</p>
+
+    <div class="quiz-card">
+        <p class="quiz-question">1. Kalau Mayyy lagi ngambek, paling cepet baikannya kalau diapain?</p>
+        <div class="quiz-options">
+            <button class="quiz-btn" data-reply="Ehe, bener banget. Diem-diem peluk emang nggak pernah gagal 🤭">Dipeluk diem-diem</button>
+            <button class="quiz-btn" data-reply="Hahaha iya, traktiran emang bahasa cinta universal 🍫">Ditraktir cemilan</button>
+            <button class="quiz-btn" data-reply="Wah jago juga ya bikin Ikyyy yang minta maaf duluan 😅">Disuruh minta maaf duluan</button>
+        </div>
+    </div>
+
+    <div class="quiz-card">
+        <p class="quiz-question">2. Pose foto favorit Mayyy versi Ikyyy itu yang mana?</p>
+        <div class="quiz-options">
+            <button class="quiz-btn" data-reply="Setuju, senyum kamu itu plot twist terbaik di tiap foto 😍">Yang lagi senyum lepas</button>
+            <button class="quiz-btn" data-reply="Bener, kelihatan jutek tapi tetep menggemaskan 😂">Yang gaya jutek-jutek lucu</button>
+            <button class="quiz-btn" data-reply="Iya, candid emang nggak bisa boong, selalu cantik 📸">Candid pas nggak nyadar difoto</button>
+        </div>
+    </div>
+
+    <div class="quiz-card">
+        <p class="quiz-question">3. Menurut Ikyyy, alasan Mayyy paling gampang baper itu karena?</p>
+        <div class="quiz-options">
+            <button class="quiz-btn" data-reply="Hihi iya, kamu emang gampang baper sama hal-hal manis 🥺">Suka hal-hal manis & receh</button>
+            <button class="quiz-btn" data-reply="Bener, lagu sedih dikit aja kamu udah ikut nyanyi sambil mewek 🎵">Kena lagu galau dikit</button>
+            <button class="quiz-btn" data-reply="Yaa karena hatinya emang sebesar itu buat orang-orang yang disayang ❤️">Karena hatinya emang gede</button>
+        </div>
+    </div>
+
+    <p id="quizReply" class="quiz-reply"></p>
+
+</section>
+
 <!-- GIFT -->
 <section class="gift-section">
 
-    <h2>🎁 Hadiah Untukmu 🎁</h2>
+    <p class="eyebrow">🎁 sebelum ditutup</p>
+    <h2>Hadiah Untukmu</h2>
+    <p class="section-sub">Bukan barang mahal, tapi rasanya nggak murahan kok. Coba klik aja.</p>
 
     <button id="giftBtn">
         Klik Untuk Membuka Hadiah ❤️
@@ -262,16 +371,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         <h1>❤️ HAPPY BIRTHDAY MAYYY ❤️</h1>
 
         <p>
-            Aku mungkin tidak bisa memberikan seluruh dunia untukmu,
-            tetapi aku akan selalu berusaha memberikan yang terbaik untukmu.
+            Aku mungkin nggak bisa ngasih seluruh dunia buat kamu,
+            tapi aku akan selalu berusaha ngasih yang terbaik buat kamu.
             <br><br>
             Terima kasih sudah hadir dalam hidupku.
             <br><br>
-            Semoga setiap harimu dipenuhi kebahagiaan,
-            kesehatan, tawa, dan cinta.
+            Semoga setiap harimu dipenuhi kebahagiaan, kesehatan, tawa, dan cinta.
             <br><br>
-            I Love You More Than Yesterday,
-            But Less Than Tomorrow ❤️
+            I Love You More Than Yesterday, But Less Than Tomorrow ❤️
         </p>
 
         <button id="closePopup">
@@ -285,16 +392,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <!-- FOOTER -->
 <footer>
 
-    <h2>
-        ❤️ Forever With You ❤️
-    </h2>
+    <h2>❤️ Forever With You ❤️</h2>
 
-    <p>
-        Dibuat dengan cinta oleh Ikyyy ❤️
-    </p>
+    <div class="love-counter">
+        <button id="loveBtn" class="love-btn">
+            <i class="fa-solid fa-heart"></i>
+            Klik kalau kamu sayang Ikyyy juga
+        </button>
+        <p id="loveCount" class="love-count">0 klik cinta</p>
+        <p id="loveMsg" class="love-msg"></p>
+    </div>
+
+    <p class="footer-credit">Dibuat dengan cinta (dan sedikit kode berantakan) oleh Ikyyy ❤️</p>
 
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
 <script src="js/script.js"></script>
 
 </body>

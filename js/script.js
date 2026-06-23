@@ -1,393 +1,159 @@
-/* ==========================
-   PINK PRINCESS SCRIPT
-   By Ikyyy ❤️
-========================== */
+// =====================================================
+// LOADER
+// =====================================================
+const loader = document.getElementById('loader');
+const startBtn = document.getElementById('startBtn');
+const music = document.getElementById('birthdayMusic');
+const musicToggle = document.getElementById('musicToggle');
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    const loader = document.getElementById("loader");
-    const startBtn = document.getElementById("startBtn");
-    const music = document.getElementById("birthdayMusic");
-
-    /* ==========================
-       START WEBSITE
-    ========================== */
-
-    startBtn.addEventListener("click", () => {
-
-        loader.style.opacity = "0";
-
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 800);
-
-        music.play().catch(() => {
-            console.log("Autoplay diblokir browser.");
-        });
-
-        createConfetti(150);
-
-    });
-
-    /* ==========================
-       GIFT POPUP
-    ========================== */
-
-    const giftBtn = document.getElementById("giftBtn");
-    const popup = document.getElementById("giftPopup");
-    const closePopup = document.getElementById("closePopup");
-
-    giftBtn.addEventListener("click", () => {
-
-        popup.style.display = "flex";
-
-        createConfetti(300);
-
-        createLoveExplosion();
-
-    });
-
-    closePopup.addEventListener("click", () => {
-
-        popup.style.display = "none";
-
-    });
-
-    popup.addEventListener("click", (e) => {
-
-        if (e.target === popup) {
-            popup.style.display = "none";
-        }
-
-    });
-
-    /* ==========================
-       HEARTS
-    ========================== */
-
-    setInterval(createHeart, 400);
-
-    /* ==========================
-       STARS
-    ========================== */
-
-    createStars();
-
-    /* ==========================
-       BALLOONS
-    ========================== */
-
-    createBalloons();
-
-    /* ==========================
-       CURSOR HEART
-    ========================== */
-
-    document.addEventListener("mousemove", heartTrail);
-
+startBtn.addEventListener('click', () => {
+    loader.classList.add('hide');
+    music.play().catch(() => { /* autoplay blocked, user can use the toggle */ });
+    musicToggle.classList.add('playing');
+    launchConfetti(60);
 });
 
-/* ==========================
-   FLOATING HEARTS
-========================== */
-
-function createHeart() {
-
-    const heart = document.createElement("div");
-
-    heart.className = "heart";
-
-    heart.innerHTML = ["💖","💕","💗","💓","💘","❤️"]
-    [Math.floor(Math.random() * 6)];
-
-    heart.style.left = Math.random() * window.innerWidth + "px";
-
-    heart.style.bottom = "-30px";
-
-    heart.style.fontSize =
-        (20 + Math.random() * 25) + "px";
-
-    heart.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
-
-}
-
-/* ==========================
-   STARS
-========================== */
-
-function createStars() {
-
-    const container =
-        document.getElementById("stars-container");
-
-    for(let i = 0; i < 80; i++) {
-
-        const star =
-            document.createElement("div");
-
-        star.className = "star";
-
-        star.style.left =
-            Math.random() * 100 + "%";
-
-        star.style.top =
-            Math.random() * 100 + "%";
-
-        star.style.animationDuration =
-            (1 + Math.random() * 3) + "s";
-
-        star.style.opacity =
-            Math.random();
-
-        container.appendChild(star);
-
+musicToggle.addEventListener('click', () => {
+    if (music.paused) {
+        music.play().catch(() => {});
+        musicToggle.classList.add('playing');
+        musicToggle.innerHTML = '<i class="fa-solid fa-music"></i>';
+    } else {
+        music.pause();
+        musicToggle.classList.remove('playing');
+        musicToggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
     }
+});
 
+// =====================================================
+// FLOATING HEARTS, STARS, BALLOONS
+// =====================================================
+const heartsContainer = document.getElementById('hearts-container');
+const starsContainer = document.getElementById('stars-container');
+const balloonsContainer = document.getElementById('balloons-container');
+
+const heartEmojis = ['❤️', '💖', '💕', '💗'];
+const starEmojis = ['✨', '⭐', '🌟'];
+const balloonEmojis = ['🎈', '🎈', '🎈'];
+
+function spawnFloating(container, emojis, className, durationRange) {
+    const el = document.createElement('span');
+    el.className = className;
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+    el.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+    const duration = durationRange[0] + Math.random() * (durationRange[1] - durationRange[0]);
+    el.style.animationDuration = duration + 's';
+    container.appendChild(el);
+    setTimeout(() => el.remove(), duration * 1000 + 200);
 }
 
-/* ==========================
-   CONFETTI
-========================== */
-
-function createConfetti(amount) {
-
-    const colors = [
-        "#ff4fa2",
-        "#ff8fc7",
-        "#ff1493",
-        "#ffd1e8",
-        "#ffffff",
-        "#ff69b4"
-    ];
-
-    for(let i = 0; i < amount; i++) {
-
-        const confetti =
-            document.createElement("div");
-
-        confetti.style.position = "fixed";
-        confetti.style.width = "10px";
-        confetti.style.height = "10px";
-
-        confetti.style.left =
-            Math.random() * window.innerWidth + "px";
-
-        confetti.style.top = "-20px";
-
-        confetti.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
-
-        confetti.style.zIndex = "99999";
-
-        confetti.style.borderRadius =
-            Math.random() > 0.5 ? "50%" : "0";
-
-        document.body.appendChild(confetti);
-
-        let posY = -20;
-        let rotate = 0;
-
-        const speed =
-            2 + Math.random() * 6;
-
-        const drift =
-            -3 + Math.random() * 6;
-
-        const interval = setInterval(() => {
-
-            posY += speed;
-            rotate += 10;
-
-            confetti.style.top =
-                posY + "px";
-
-            confetti.style.left =
-                (parseFloat(confetti.style.left)
-                + drift) + "px";
-
-            confetti.style.transform =
-                `rotate(${rotate}deg)`;
-
-            if(posY > window.innerHeight) {
-
-                clearInterval(interval);
-                confetti.remove();
-
-            }
-
-        }, 16);
-
-    }
-
-}
-
-/* ==========================
-   LOVE EXPLOSION
-========================== */
-
-function createLoveExplosion() {
-
-    for(let i = 0; i < 80; i++) {
-
-        const love =
-            document.createElement("div");
-
-        love.innerHTML = "💖";
-
-        love.style.position = "fixed";
-
-        love.style.left =
-            window.innerWidth / 2 + "px";
-
-        love.style.top =
-            window.innerHeight / 2 + "px";
-
-        love.style.fontSize = "25px";
-
-        love.style.zIndex = "99999";
-
-        document.body.appendChild(love);
-
-        const angle =
-            Math.random() * 360;
-
-        const distance =
-            100 + Math.random() * 300;
-
-        const x =
-            Math.cos(angle) * distance;
-
-        const y =
-            Math.sin(angle) * distance;
-
-        love.animate([
-            {
-                transform: "translate(0,0)",
-                opacity: 1
-            },
-            {
-                transform:
-                    `translate(${x}px, ${y}px)`,
-                opacity: 0
-            }
-        ], {
-            duration: 1800,
-            easing: "ease-out"
-        });
-
-        setTimeout(() => {
-            love.remove();
-        }, 1800);
-
-    }
-
-}
-
-/* ==========================
-   BALLOONS
-========================== */
-
-function createBalloons() {
-
-    const emojis = [
-        "🎈",
-        "🎀",
-        "🌸",
-        "🦋",
-        "💗"
-    ];
-
-    setInterval(() => {
-
-        const balloon =
-            document.createElement("div");
-
-        balloon.innerHTML =
-            emojis[Math.floor(Math.random() * emojis.length)];
-
-        balloon.style.position = "fixed";
-
-        balloon.style.left =
-            Math.random() * window.innerWidth + "px";
-
-        balloon.style.bottom = "-50px";
-
-        balloon.style.fontSize =
-            (25 + Math.random() * 20) + "px";
-
-        balloon.style.zIndex = "-1";
-
-        document.body.appendChild(balloon);
-
-        let pos = -50;
-
-        const fly = setInterval(() => {
-
-            pos += 2;
-
-            balloon.style.bottom =
-                pos + "px";
-
-            if(pos > window.innerHeight + 100) {
-
-                clearInterval(fly);
-                balloon.remove();
-
-            }
-
-        }, 20);
-
-    }, 1500);
-
-}
-
-/* ==========================
-   CURSOR HEART TRAIL
-========================== */
-
-function heartTrail(e) {
-
-    const heart =
-        document.createElement("div");
-
-    heart.innerHTML = "💖";
-
-    heart.style.position = "fixed";
-
-    heart.style.left = e.clientX + "px";
-
-    heart.style.top = e.clientY + "px";
-
-    heart.style.pointerEvents = "none";
-
-    heart.style.fontSize = "15px";
-
-    heart.style.zIndex = "9999";
-
-    document.body.appendChild(heart);
-
-    heart.animate([
-        {
-            transform: "translateY(0)",
-            opacity: 1
-        },
-        {
-            transform: "translateY(-30px)",
-            opacity: 0
-        }
-    ], {
-        duration: 700
+setInterval(() => spawnFloating(heartsContainer, heartEmojis, 'floating-heart', [6, 11]), 800);
+setInterval(() => spawnFloating(starsContainer, starEmojis, 'floating-star', [7, 12]), 1100);
+setInterval(() => spawnFloating(balloonsContainer, balloonEmojis, 'floating-balloon', [9, 14]), 2600);
+
+// =====================================================
+// REASON FLIP CARDS
+// =====================================================
+document.querySelectorAll('.reason-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') card.classList.toggle('flipped');
     });
+});
 
-    setTimeout(() => {
-        heart.remove();
-    }, 700);
+// =====================================================
+// LETTER REVEAL ON SCROLL
+// =====================================================
+const revealItems = document.querySelectorAll('.reveal-text');
 
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        }
+    });
+}, { threshold: 0.2 });
+
+revealItems.forEach(item => revealObserver.observe(item));
+
+// =====================================================
+// QUIZ RECEH
+// =====================================================
+const quizReply = document.getElementById('quizReply');
+
+document.querySelectorAll('.quiz-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        quizReply.textContent = btn.dataset.reply;
+        document.querySelectorAll('.quiz-btn').forEach(b => b.style.background = '');
+        btn.style.background = 'var(--lavender)';
+        btn.style.color = '#fff';
+    });
+});
+
+// =====================================================
+// GIFT POPUP
+// =====================================================
+const giftBtn = document.getElementById('giftBtn');
+const giftPopup = document.getElementById('giftPopup');
+const closePopup = document.getElementById('closePopup');
+
+giftBtn.addEventListener('click', () => {
+    giftPopup.classList.add('show');
+    launchConfetti(120);
+});
+
+closePopup.addEventListener('click', () => {
+    giftPopup.classList.remove('show');
+});
+
+giftPopup.addEventListener('click', (e) => {
+    if (e.target === giftPopup) giftPopup.classList.remove('show');
+});
+
+// =====================================================
+// LOVE COUNTER (signature interaction)
+// =====================================================
+const loveBtn = document.getElementById('loveBtn');
+const loveCount = document.getElementById('loveCount');
+const loveMsg = document.getElementById('loveMsg');
+
+let clicks = 0;
+
+const milestoneMessages = {
+    1: 'Aamiin, baru mulai nih 🥰',
+    5: 'Tombolnya ikut deg-degan kayak Ikyyy 😳',
+    10: 'Sayangnya udah dua digit, mantap 💞',
+    20: 'Jari kamu rajin banget, gemes deh 😆',
+    35: 'Oke ini udah resmi gemoy banget 🐻',
+    50: 'Setengah abad klik cinta, sah jadi pasangan abadi 👑❤️'
+};
+
+loveBtn.addEventListener('click', () => {
+    clicks++;
+    loveCount.textContent = `${clicks} klik cinta`;
+
+    if (milestoneMessages[clicks]) {
+        loveMsg.textContent = milestoneMessages[clicks];
+        launchConfetti(40);
+    } else if (clicks > 50) {
+        loveMsg.textContent = 'Udah dari tadi cintanya nggak abis-abis ya ❤️';
+    } else {
+        loveMsg.textContent = 'Terus klik, Ikyyy nggak akan capek liatnya 🤭';
+    }
+});
+
+// =====================================================
+// CONFETTI HELPER
+// =====================================================
+function launchConfetti(count) {
+    if (typeof confetti !== 'function') return;
+    confetti({
+        particleCount: count,
+        spread: 70,
+        startVelocity: 35,
+        origin: { y: 0.6 },
+        colors: ['#E85D75', '#F4C95D', '#C9A6E8', '#FFE4EC']
+    });
 }
